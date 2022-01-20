@@ -1,3 +1,4 @@
+<p> LOE-sepecific Fork of...</p>
 <p align="center">
   <img src="./.github/documentation-js-logo.png" width="650" />
 </p>
@@ -9,7 +10,6 @@
 [![Circle CI](https://circleci.com/gh/documentationjs/documentation/tree/master.svg?style=shield)](https://circleci.com/gh/documentationjs/documentation/tree/master)
 [![npm version](https://badge.fury.io/js/documentation.svg)](http://badge.fury.io/js/documentation)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/documentationjs/documentation?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![David](https://david-dm.org/documentationjs/documentation.svg)](https://david-dm.org/documentationjs/documentation)
 [![Inline docs](http://inch-ci.org/github/documentationjs/documentation.svg?branch=master&style=flat-square)](http://inch-ci.org/github/documentationjs/documentation)
 
 [:date: Current maintenance status](https://github.com/documentationjs/documentation/wiki/Current-maintenance-status)
@@ -18,6 +18,32 @@
 - Infers parameters, types, membership, and more. Write less documentation: let the computer write it for you.
 - Integrates with GitHub to link directly from documentation to the code it refers to.
 - Customizable output: HTML, JSON, Markdown, and more
+
+## LOE-Specific 
+In order to use this in projects do the following steps:
+1. clone locally
+2. from the local directory where this project was cloned, run the following command in terminal
+```bash
+npm link
+```
+3. from the project you are working on, run the following command in terminal
+```bash
+npm link documentation
+```
+
+At that point you should be able to write npm scripts in your package.json as follows:
+```json
+...
+"scripts": {
+  "docs":"documentation build utilities/** -f md --parse-extension js --config utilities/_doc.yml -o docs/utilities.md"
+}
+```
+the above npm script would create documentation 
+1. based on the contents of the utilities folder 
+2. output them as markdown
+3. only look at files with the "js" file extension
+4. follow the order of the TOC created in utilities/_doc.yml
+5. output the results in docs/utilities.md
 
 ## Examples
 
